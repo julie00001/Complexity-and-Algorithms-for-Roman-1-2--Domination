@@ -1,0 +1,10 @@
+source,p,target_order,tau,milp_optimum,decoder_checks
+cube,8,32,4,12,793
+two_K4,8,32,6,14,793
+Petersen,10,40,6,16,1567
+pentagonal_prism,10,40,6,16,1567
+K33_plus_K4,10,40,6,16,1567
+Frucht,12,48,7,19,4645
+hexagonal_prism,12,48,6,18,4645
+random_14,14,56,8,22,555
+random_16,16,64,9,25,561

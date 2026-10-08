@@ -1,0 +1,6 @@
+family,main_instances,main_clique_orders,main_seeds,scaling_instances,purpose
+Bipartite,9,24;48;96,20261011;20261012;20261013,4,Exact matching subclass; comparison and scalability
+"Cubic, one copy",9,24;48;96,20261011;20261012;20261013,4,Degree-two/cross-degree-three exact subclass; exactness and scalability
+"Cubic, two copies",9,24;48;96,20261011;20261012;20261013,0,APX-complete class; auxiliary integer optimization and approximation quality
+Random pairs,9,24;48;96,20261011;20261012;20261013,0,General degree-two instances outside guaranteed polynomial subclasses; comparison and quality
+Matching stress,3,24;48;96,20261011,0,Constructed tight 4/3 examples; polynomial exact reference

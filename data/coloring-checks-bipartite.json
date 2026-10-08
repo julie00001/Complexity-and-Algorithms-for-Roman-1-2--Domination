@@ -1,0 +1,117 @@
+{
+  "variant": "bipartite",
+  "local_pairs": 36,
+  "accepted_local_pairs": 12,
+  "atlas": {
+    "3": {
+      "total": 4,
+      "colorable": 4
+    },
+    "4": {
+      "total": 11,
+      "colorable": 10
+    },
+    "5": {
+      "total": 34,
+      "colorable": 29
+    },
+    "6": {
+      "total": 156,
+      "colorable": 119
+    },
+    "7": {
+      "total": 1044,
+      "colorable": 667
+    }
+  },
+  "forward_assignments": 829,
+  "selector_graphs": 49,
+  "selector_vectors": 1161216,
+  "accepted_selector_vectors": 18138,
+  "milp": [
+    {
+      "source": "empty3",
+      "n": 3,
+      "m": 0,
+      "M": 13,
+      "N": 48,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "optimum": 12
+    },
+    {
+      "source": "triangle",
+      "n": 3,
+      "m": 3,
+      "M": 13,
+      "N": 165,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "optimum": 10
+    },
+    {
+      "source": "cycle5",
+      "n": 5,
+      "m": 5,
+      "M": 21,
+      "N": 435,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "optimum": 17
+    },
+    {
+      "source": "K4",
+      "n": 4,
+      "m": 6,
+      "M": 17,
+      "N": 386,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "infeasible_at_threshold": 16
+    },
+    {
+      "source": "wheel6",
+      "n": 6,
+      "m": 10,
+      "M": 25,
+      "N": 918,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "infeasible_at_threshold": 24
+    },
+    {
+      "source": "K5",
+      "n": 5,
+      "m": 10,
+      "M": 21,
+      "N": 750,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "infeasible_at_threshold": 20
+    }
+  ],
+  "structure": [
+    {
+      "source": "path3",
+      "M": 3,
+      "N": 36,
+      "connectivity": 3,
+      "degeneracy": 4
+    },
+    {
+      "source": "triangle",
+      "M": 3,
+      "N": 45,
+      "connectivity": 3,
+      "degeneracy": 4
+    },
+    {
+      "source": "K4",
+      "M": 3,
+      "N": 78,
+      "connectivity": 3,
+      "degeneracy": 4
+    }
+  ],
+  "seconds": 47.36
+}

@@ -1,0 +1,322 @@
+DATA DESCRIPTION AND MANUSCRIPT CORRESPONDENCE
+Complexity and Algorithms for Roman [1,2]-Domination
+
+1. WHERE EACH RESULT COMES FROM
+
+The numbered experimental tables in the supplied manuscript are Tables 1--3.
+Their captions and LaTeX labels are given below so that the mapping remains
+unambiguous if tables are renumbered during revision or journal production.
+The appendix contains two unnumbered tables.
+
+Table 1: "Wall time and the number of direct-model optima certified.
+All structural runs certify optimality."  Label: tab:runtime
+  Manuscript location: Computational experiments / Runtime and solution quality.
+  Source: data/split-benchmark-cbc.json, results (39 records).
+  Equivalent flat records: data/split-benchmark-cbc.csv.
+  Reconstruction: tables/runtime.csv (15 rows).
+  Group by family and p. Report the minimum--maximum target order, median
+  structural_seconds, median full_seconds, and the number of true
+  full_certified flags divided by the group size. Each random group has three
+  seeds; each stress group has one instance. Structural times are printed to
+  four decimals and direct times to three decimals. Summing certification
+  flags gives 39 structural optima and 19 direct-model optima.
+
+Table 2: "Solution ratios across all clique orders within each family."
+Label: tab:quality
+  Manuscript location: Computational experiments / Runtime and solution quality.
+  Source: the same 39 records in data/split-benchmark-cbc.json.
+  Reconstruction: tables/quality.csv (five rows).
+  For each instance, OPT = lower = upper = structural_value = structural_lower.
+  Compute approx_value/OPT and baseline_value/OPT, then take their arithmetic
+  mean and maximum within the family, pooling all three clique orders. Means
+  give each instance equal weight. There are nine instances per random family
+  and three stress instances. Ratios are printed to three decimals.
+  These are ratios to certified optima, not to time-limited direct incumbents.
+  Independent confirmation by the direct model applies only to its 19 solved
+  instances. The structural method supplies the reference optimum on all 39.
+
+Table 3: "Additional scalability runs on the two exact subclasses."
+Label: tab:scaling
+  Manuscript location: Computational experiments / Larger polynomial instances.
+  Source: data/split-scaling.json, rows (eight records).
+  Reconstruction: tables/scaling.csv (eight rows).
+  Each row is one input with the fixed seed 20261011. structural_seconds is
+  already the median of three runs on that input; optimum is the certified
+  structural objective. The displayed approximation ratio is approx_ratio.
+  Times and ratios are printed to three decimals. These eight inputs are
+  additional to the 39 small instances and are not pooled into Tables 1 or 2.
+  The largest target order is 10,078.
+
+Experimental design and per-instance mapping
+  tables/experimental_design.csv lists all five families, their counts, and
+  their purpose. It explains the arrangement of experiments described in the
+  text; it is a supplementary overview, not an additional numerical experiment.
+  tables/instance_table_map.csv assigns all 47 saved benchmark/scaling inputs
+  to the exact family/p rows in the above three tables.
+
+Appendix A.1: Coloring constructions
+  data/coloring-checks.json:
+    The local color-subset checks for Lemma 4.1 (lem:sets) and the finite
+    amplified split checks supporting Theorem 4.3 (thm:gap).
+  data/coloring-checks-bipartite.json:
+    The amplified bipartite checks for Theorem 4.3, plus the structural
+    examples for Proposition 4.4 (prop:classes).
+  data/coloring-checks-unit.json:
+    The six-row unnumbered table of unamplified split constructions for
+    Theorem 3.1 (thm:unit), including the twin and cross-part-degree checks.
+  tables/appendix_coloring.csv contains all 18 integer-program records, with
+  a variant column. The six 'unit_split' rows give that unnumbered table.
+  Code: code/verify_coloring.py; the three invocations are in reproduce.py.
+
+Appendix A.2: Split-graph formulas and algorithms
+  data/split-algorithm-checks.json:
+    Theorem 6.2 (thm:formula): 6,540 exhaustive small inputs, 32 larger random
+    inputs, and five named examples, compared with an independent oracle.
+    Theorem 6.3 (thm:matching): 6,359 applicable exhaustive inputs.
+    Theorem 6.4 (thm:cross3): 1,015 enumerated inputs in which every independent
+    vertex has degree two and the clique-to-independent degree is at most
+    three. This counter does not enumerate additional cases with isolates.
+    Remark 6.8 (rem:small): 153 inputs with clique order at most two.
+    Figure 4 (fig:matching): special_cases / three_disjoint_pairs, p=6, q=18,
+    optimum 9. This figure uses six copies per auxiliary edge.
+  Code: code/verify_split_algorithms.py.
+
+Appendix A.3: Approximation transfer and solution recovery
+  data/approximation-checks.json, transfer:
+    Theorem 6.5 (thm:transfer) and Corollary 6.6 (thm:fourthirds): 6,540 small
+    approximation checks, 54,682 small cover-transfer checks, and 1,077 further
+    transfer checks on 60 denser inputs. The third formula term is strictly
+    optimal on 52 of the 60; ten optima are independently checked by a full
+    integer formulation. tight_matching_example records weights 12 and 9,
+    attaining 4/3, with p=6 and q=24 (eight copies per edge).
+  data/approximation-checks.json, apx:
+    Theorem 6.7 (thm:apx) and the recovery inequality (eq:apx-second).
+    The nine-row unnumbered source/target table is reconstructed as
+    tables/appendix_cubic_reduction.csv. The target optimum is p+tau on every
+    row. Recovery is checked on 16,693 feasible target labelings: 13,956 use
+    the large-weight branch and 2,737 use the normalization branch.
+  Code: code/verify_approximation.py.
+
+The figures illustrating constructions are mathematical diagrams, not
+experimental datasets. Figure 3's local tests are covered by the 36-pair
+check. Figure 4's concrete instance is identified above. No empirical claim
+of NP-hardness or inapproximability is made from any finite check.
+
+2. WHY THESE FIVE FAMILIES ARE INCLUDED
+
+Bipartite (identifier: bipartite)
+  The auxiliary graph has two parts of size p/2 and edge probability 12/p;
+  each edge supplies three independent vertices with the same two neighbors.
+  The residual auxiliary graph is bipartite, allowing an exact matching
+  algorithm (Theorem 6.3). This family tests computational savings from the
+  formula, approximation quality against exact reference values, and scaling
+  within a polynomially solvable subclass.
+
+Cubic, one copy (cubic_single)
+  A random simple 3-regular auxiliary graph is generated, with one independent
+  vertex per edge. Every independent vertex has degree two and every clique
+  vertex has three independent neighbors, so Theorem 6.4 applies. These inputs
+  test the exact polynomial formula, the predicted exactness of the elementary
+  approximation on this subclass, and its behavior on larger inputs.
+
+Cubic, two copies (cubic_double)
+  The same cubic generator is used, with two independent vertices per edge.
+  Clique vertices have six independent neighbors. This is the APX-complete
+  class of Theorem 6.7. The family tests the auxiliary-cover optimization and
+  approximation quality on inputs from that class. Membership in a hard
+  class does not imply that each small sampled input is computationally hard.
+
+Random pairs (general_pairs)
+  The auxiliary graph is G(p,6/(p-1)), with three independent vertices per
+  edge. This tests less restricted degree-two instances. The structural
+  implementation checks the hypotheses of the polynomial algorithms and
+  otherwise solves an auxiliary integer vertex-cover model. The recorded
+  structural_route identifies which method actually ran on each input.
+
+Matching stress (matching_stress)
+  The auxiliary graph consists of p/2 disjoint edges, with eight independent
+  vertices per edge. These are constructed tight examples for the unpruned
+  maximal-matching approximation: its ratio is 4/3 at p=24,48,96. The auxiliary
+  graph is also bipartite, so an exact polynomial algorithm provides the
+  reference value. Exact solvability and a tight ratio for this particular
+  approximation algorithm can hold on the same instance.
+
+The small experiment uses p=24,48,96 and seeds 20261011,20261012,20261013
+for each of the first four families: 4 x 3 x 3 = 36 inputs. The deterministic
+stress family contributes three more; its seed field uses 20261011 for a
+uniform solver protocol, not for random graph generation.
+
+The scaling experiment uses only the first two families, with p=192,384,768,
+1024 and seed 20261011: 2 x 4 = eight inputs. It measures the scalability of
+the proven polynomial methods. The direct model is omitted at these sizes
+because it already reaches the 10-second limit on several smaller inputs;
+there is no measured direct-versus-structural comparison at the larger sizes.
+
+Thus the approximation tests have three complementary purposes: checking
+predicted behavior on tractable subclasses, evaluating quality on inputs
+from more general/hard classes, and attaining the proved worst-case ratio
+on a deliberately constructed family. The experiments do not purport to
+establish the complexity classification or test the proposed applications.
+
+3. HOW TO READ AND RECONSTRUCT THE INPUT GRAPHS
+
+The two benchmark JSON files store the complete inputs in 'instances'.
+Each split graph has a supplied clique C={0,...,p-1}; independent vertex j
+has graph index p+j. 'neighborhood_masks[j]' is a nonnegative decimal integer
+whose bit v is 1 exactly when clique vertex v is adjacent to p+j.
+
+To reconstruct G:
+  (i) add every edge between distinct vertices of C;
+  (ii) for every j and every set bit v of neighborhood_masks[j], add {v,p+j};
+  (iii) add no edges between independent vertices.
+
+The target order is N=p+len(neighborhood_masks). Identical masks specify
+distinct vertices with repeated neighborhoods; do not deduplicate them.
+For example, p=3 with masks [3,3,6] gives the clique edges {0,1},{0,2},{1,2},
+two distinct independent vertices adjacent to {0,1}, and a third adjacent
+to {1,2}. It has six vertices in total.
+
+Use arbitrary-precision integers when reading masks. Python's json module
+and int preserve them exactly. Floating-point JSON readers can corrupt
+large masks, especially in the p=1024 inputs. All benchmark masks have two
+set bits. The finite split tests also permit mask 0 and one-bit masks, for
+isolates and private leaves, respectively.
+
+Main instances are joined to results by 'id', for example
+'cubic_double_p48_s20261012'. Scaling instances are joined by (family,p),
+with the seed stored once at the top level. Code/benchmark_split_optimization.py
+generates these same ordered masks from the stated parameters and seeds.
+
+4. MAIN BENCHMARK FIELDS AND CERTIFICATION
+
+data/split-benchmark-cbc.json contains:
+  hardware: Python/package versions, operating system, CPU description;
+  solver, solver_threads, solver_time_limit_seconds: CBC and its run settings;
+  upper_constraint_M: max(0,degree-2), used in the direct formulation;
+  sizes, seeds, families: random-design parameters (the three deterministic
+    matching_stress inputs are appended separately by the generator);
+  fast_timing_repetitions, timing_scope, timing_note: measurement protocol;
+  instances: the 39 graph inputs;
+  results: the 39 records described below;
+  complete: true only after all jobs have finished.
+
+Each result record contains:
+  id, family, p, N, seed: instance identity, clique order, target order, seed.
+  approx_value: feasible weight returned by the elementary 4/3 algorithm.
+  approx_seconds: median of 20 approximation timings on that input.
+  baseline_value: minimum of the best singleton, best pair, and the
+    all-clique-two candidate; the baseline is not just the all-clique weight.
+  lower, upper: combined valid lower bound and best feasible upper bound.
+  optimum_certified: whether the combined lower and upper bounds coincide.
+  approx_ratio_or_certificate: approx_value/lower.
+  baseline_ratio_or_certificate: baseline_value/lower.
+    In all 39 published rows lower=upper, so these are actual optimality
+    ratios. If a new run leaves an interval, they are upper certificates
+    for the ratios, and must not be described as ratios to known optima.
+  structural_value, structural_lower: structural method's feasible weight
+    and lower bound; structural_certified records their equality.
+  structural_route: cross3 (Theorem 6.4), matching (Theorem 6.3), or cover_milp
+    (auxiliary-cover integer model), selected after testing the applicable
+    structural conditions in this order.
+  structural_seconds: preprocessing and, when needed, auxiliary integer-
+    model construction and solution time; one measurement per input.
+  full_value: direct integer model's incumbent weight, or null if absent.
+  full_lower: its valid integer lower bound.
+  full_certified: whether that model reports an optimal solution.
+  full_status: this wrapper's code, 0=optimal, 1=stopped on the time limit.
+    These are not the status codes of the SciPy finite-verification scripts.
+  full_seconds: wall time for direct model construction and solution.
+  full_gap: (incumbent minus conservative solver bound)/incumbent, or null.
+    This is a wrapper-computed gap, not a ratio to the independently known
+    optimum and not necessarily CBC's displayed relative-gap convention.
+
+For a time-limited solve, CBC prints a lower bound rounded to three decimals.
+The wrapper subtracts 0.001 before rounding upward to the next integer bound,
+avoiding an overstatement caused by rounding the log. The structural method
+also uses valid combinatorial bounds where applicable. An incumbent alone
+is never used as an optimality certificate.
+
+The CSV has the same result columns as the JSON. Booleans appear as True/False;
+JSON null values appear as empty CSV cells. Inputs and metadata are in JSON.
+The two files are checked for exact record agreement by code/review.py audit.
+
+5. SCALING FIELDS AND TIMING PROTOCOL
+
+data/split-scaling.json contains hardware, seed=20261011, repetitions=3,
+timing_scope, instances, rows, and complete. Each row contains family, p, N,
+optimum, route, structural_seconds, approx_seconds, and approx_ratio. Both
+timings are medians of three runs. approx_ratio is the feasible approximation
+weight divided by the exact structural optimum. Individual repetition times
+were not retained; the reported medians are the stored observations. The
+same applies to the 20-run approximation medians in the main benchmark.
+
+For the main experiment both integer formulations use CBC in serial mode
+(threads=0), elapsed-time limit 10 seconds, relative gap target 0, absolute
+gap target 0, and randomSeed=randomCbcSeed=the instance seed. Other solver
+settings are defaults. A warm-up solve is excluded. Runs are sequential.
+Integer timing includes preprocessing/model construction, solver startup,
+and model/solution file input/output. Generation and full label checking
+are excluded. For non-integer structural branches, preprocessing is included.
+External solver limits do not include all Python/process overhead, so a
+recorded wall time can exceed 10 seconds.
+
+The original table timings remain the observations in data/. New timings are
+written separately. CPU load, operating system, solver distribution, and
+library versions can change timing and time-limit outcomes. The provided
+runner compares input graphs and scientific objectives, not wall-clock
+identity or the direct model's time-limited search trajectory.
+
+6. FINITE-VERIFICATION RECORDS
+
+Coloring files
+  local_pairs/accepted_local_pairs: 36/12 ordered pairs of nonempty proper
+    color subsets; precisely the disjoint pairs pass the edge test.
+  atlas: counts by source order 3--7; 1,249 graphs in total, 829 colorable.
+  forward_assignments: 829 constructed target labelings checked.
+  selector_graphs/selector_vectors/accepted_selector_vectors:
+    49 graphs, 1,161,216 vectors, and 18,138 accepted vectors.
+  milp: source identifier, source order n and size m, multiplicity M, target
+    order N, SciPy status/message, and either optimum or infeasible_at_threshold.
+    SciPy status 0 means an optimum was certified; status 2 means infeasible
+    with the additional constraint weight<=4n. It does NOT mean the original
+    unconstrained Roman [1,2]-domination problem is infeasible.
+  structure (bipartite file): path3, triangle, and K4 examples with M=3,
+    recording connectivity 3 and degeneracy 4.
+  seconds: wall time for the complete script invocation.
+
+The graphs with orders three through seven come from NetworkX's graph atlas.
+All named examples and their construction, including disjoint unions and
+cycle squares, are specified explicitly in verify_coloring.py. The amplified
+examples use M=4n+1; the unamplified examples use M=1. The full target labeling
+is optimized without restricting the labels of the test vertices.
+
+Split-formula file
+  cases_by_clique_order counts all multisets of 0--4 independent neighborhoods
+    of cardinality at most two for p=3,4,5: respectively 330, 1,365, 4,845.
+  exhaustive_cases=6,540; matching_cases=6,359; exact_two_cross3_cases=1,015.
+  larger_random_cases=32 uses seed 20261007.
+  special_cases lists five explicitly constructed inputs and their optima.
+  small_clique_cases=153 covers p=0,1,2 with at most five independent vertices.
+  all_passed is written only if the script's assertions succeed.
+The independent oracle minimizes W(T) by enumerating sets T over the entire
+target graph, without assuming that all vertices labeled two lie in the clique.
+
+Approximation file
+  transfer records the exhaustive and denser-family checks detailed in part 1.
+    The denser inputs use seed 20261008. worst_sampled_ratio refers to the
+    enumerated/random samples; the separately constructed 4/3 example is in
+    tight_matching_example, so the two fields have different scopes.
+  apx/instances gives nine cubic sources, p, target_order, tau, milp_optimum,
+    and decoder_checks. tau is obtained by exhaustive source-cover search;
+    milp_optimum is obtained by independently optimizing all target labels.
+    The random sources of orders 14 and 16 use seeds 20261007 and 20261008.
+  apx/decoder_checks and decoder_branches give the recovery counts;
+    L_constants=[3,1] records the proved reduction constants being checked.
+  all_passed and seconds have the same meaning as in the split-formula file.
+
+The JSON files summarize finite verifications; they do not contain a separate
+record for every enumerated labeling or cover. The complete enumeration rules,
+fixed seeds, graph constructors, and assertions are included in code/, so
+these tests can be regenerated without any omitted input or private file.
+Full solver logs and individual optimal label vectors are not archived;
+reruns reconstruct and check the labelings before recording the results.

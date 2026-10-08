@@ -1,0 +1,95 @@
+{
+  "variant": "split",
+  "local_pairs": 36,
+  "accepted_local_pairs": 12,
+  "atlas": {
+    "3": {
+      "total": 4,
+      "colorable": 4
+    },
+    "4": {
+      "total": 11,
+      "colorable": 10
+    },
+    "5": {
+      "total": 34,
+      "colorable": 29
+    },
+    "6": {
+      "total": 156,
+      "colorable": 119
+    },
+    "7": {
+      "total": 1044,
+      "colorable": 667
+    }
+  },
+  "forward_assignments": 829,
+  "selector_graphs": 49,
+  "selector_vectors": 1161216,
+  "accepted_selector_vectors": 18138,
+  "milp": [
+    {
+      "source": "two_K33",
+      "n": 12,
+      "m": 18,
+      "M": 1,
+      "N": 102,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "optimum": 48
+    },
+    {
+      "source": "K4_plus_K33",
+      "n": 10,
+      "m": 15,
+      "M": 1,
+      "N": 85,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "infeasible_at_threshold": 40
+    },
+    {
+      "source": "K5_plus_K33",
+      "n": 11,
+      "m": 19,
+      "M": 1,
+      "N": 101,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "infeasible_at_threshold": 44
+    },
+    {
+      "source": "square_C12",
+      "n": 12,
+      "m": 24,
+      "M": 1,
+      "N": 120,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "optimum": 48
+    },
+    {
+      "source": "square_C10",
+      "n": 10,
+      "m": 20,
+      "M": 1,
+      "N": 100,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "infeasible_at_threshold": 40
+    },
+    {
+      "source": "rook33_plus_K33",
+      "n": 15,
+      "m": 27,
+      "M": 1,
+      "N": 141,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "optimum": 60
+    }
+  ],
+  "structure": [],
+  "seconds": 82.39
+}

@@ -1,0 +1,56 @@
+{
+  "exhaustive_cases": 6540,
+  "small_clique_cases": 153,
+  "cases_by_clique_order": {
+    "3": 330,
+    "4": 1365,
+    "5": 4845
+  },
+  "matching_cases": 6359,
+  "exact_two_cross3_cases": 1015,
+  "larger_random_cases": 32,
+  "special_cases": [
+    {
+      "name": "three_disjoint_pairs",
+      "p": 6,
+      "q": 18,
+      "optimum": 9,
+      "matching_applicable": true,
+      "cross3_applicable": false
+    },
+    {
+      "name": "three_private_leaves_each",
+      "p": 5,
+      "q": 15,
+      "optimum": 10,
+      "matching_applicable": true,
+      "cross3_applicable": false
+    },
+    {
+      "name": "triangle_auxiliary",
+      "p": 6,
+      "q": 12,
+      "optimum": 4,
+      "matching_applicable": false,
+      "cross3_applicable": false
+    },
+    {
+      "name": "bipartite_auxiliary_K33",
+      "p": 6,
+      "q": 9,
+      "optimum": 7,
+      "matching_applicable": true,
+      "cross3_applicable": true
+    },
+    {
+      "name": "all_clique_no_tests",
+      "p": 5,
+      "q": 0,
+      "optimum": 2,
+      "matching_applicable": true,
+      "cross3_applicable": true
+    }
+  ],
+  "all_passed": true,
+  "seconds": 1.64
+}

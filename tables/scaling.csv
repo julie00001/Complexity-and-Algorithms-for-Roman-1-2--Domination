@@ -1,0 +1,9 @@
+family,p,target_order,optimum,structural_seconds_median,approximation_ratio
+Bipartite,192,1923,287,0.112,1.254
+Bipartite,384,3714,574,0.243,1.258
+Bipartite,768,7509,1149,1.808,1.264
+Bipartite,1024,10078,1532,1.766,1.258
+"Cubic, one copy",192,480,286,0.006,1.000
+"Cubic, one copy",384,960,574,0.023,1.000
+"Cubic, one copy",768,1920,1150,0.097,1.000
+"Cubic, one copy",1024,2560,1534,0.162,1.000

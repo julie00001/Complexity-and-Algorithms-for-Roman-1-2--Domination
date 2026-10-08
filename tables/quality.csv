@@ -1,0 +1,6 @@
+family,instances,approximation_mean,approximation_maximum,baseline_mean,baseline_maximum
+Bipartite,9,1.254,1.278,1.338,1.352
+"Cubic, one copy",9,1.000,1.000,1.000,1.000
+"Cubic, two copies",9,1.193,1.221,1.280,1.297
+Random pairs,9,1.160,1.179,1.241,1.263
+Matching stress,3,1.333,1.333,1.333,1.333

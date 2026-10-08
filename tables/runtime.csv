@@ -1,0 +1,16 @@
+family,p,target_order,structural_seconds_median,direct_seconds_median,direct_solved
+Bipartite,24,207--261,0.0022,1.060,3/3
+Bipartite,48,408--495,0.0075,8.017,3/3
+Bipartite,96,852--978,0.0281,10.232,0/3
+"Cubic, one copy",24,60,0.0001,2.346,3/3
+"Cubic, one copy",48,120,0.0004,10.109,0/3
+"Cubic, one copy",96,240,0.0014,10.243,0/3
+"Cubic, two copies",24,96,0.0644,2.671,3/3
+"Cubic, two copies",48,192,0.0942,10.101,0/3
+"Cubic, two copies",96,384,0.1984,10.414,0/3
+Random pairs,24,198--252,0.0619,1.665,3/3
+Random pairs,48,468--489,0.0830,9.935,2/3
+Random pairs,96,888--966,0.5586,10.157,0/3
+Matching stress,24,120,0.0005,0.396,1/1
+Matching stress,48,240,0.0008,1.769,1/1
+Matching stress,96,480,0.0023,10.177,0/1

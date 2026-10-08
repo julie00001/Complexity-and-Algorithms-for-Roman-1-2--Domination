@@ -1,0 +1,48 @@
+dataset,instance_key,runtime_row,quality_row,scaling_row
+split-benchmark-cbc.json,bipartite_p24_s20261011,Bipartite; p=24,Bipartite,
+split-benchmark-cbc.json,bipartite_p24_s20261012,Bipartite; p=24,Bipartite,
+split-benchmark-cbc.json,bipartite_p24_s20261013,Bipartite; p=24,Bipartite,
+split-benchmark-cbc.json,bipartite_p48_s20261011,Bipartite; p=48,Bipartite,
+split-benchmark-cbc.json,bipartite_p48_s20261012,Bipartite; p=48,Bipartite,
+split-benchmark-cbc.json,bipartite_p48_s20261013,Bipartite; p=48,Bipartite,
+split-benchmark-cbc.json,bipartite_p96_s20261011,Bipartite; p=96,Bipartite,
+split-benchmark-cbc.json,bipartite_p96_s20261012,Bipartite; p=96,Bipartite,
+split-benchmark-cbc.json,bipartite_p96_s20261013,Bipartite; p=96,Bipartite,
+split-benchmark-cbc.json,cubic_single_p24_s20261011,"Cubic, one copy; p=24","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p24_s20261012,"Cubic, one copy; p=24","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p24_s20261013,"Cubic, one copy; p=24","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p48_s20261011,"Cubic, one copy; p=48","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p48_s20261012,"Cubic, one copy; p=48","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p48_s20261013,"Cubic, one copy; p=48","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p96_s20261011,"Cubic, one copy; p=96","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p96_s20261012,"Cubic, one copy; p=96","Cubic, one copy",
+split-benchmark-cbc.json,cubic_single_p96_s20261013,"Cubic, one copy; p=96","Cubic, one copy",
+split-benchmark-cbc.json,cubic_double_p24_s20261011,"Cubic, two copies; p=24","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p24_s20261012,"Cubic, two copies; p=24","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p24_s20261013,"Cubic, two copies; p=24","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p48_s20261011,"Cubic, two copies; p=48","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p48_s20261012,"Cubic, two copies; p=48","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p48_s20261013,"Cubic, two copies; p=48","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p96_s20261011,"Cubic, two copies; p=96","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p96_s20261012,"Cubic, two copies; p=96","Cubic, two copies",
+split-benchmark-cbc.json,cubic_double_p96_s20261013,"Cubic, two copies; p=96","Cubic, two copies",
+split-benchmark-cbc.json,general_pairs_p24_s20261011,Random pairs; p=24,Random pairs,
+split-benchmark-cbc.json,general_pairs_p24_s20261012,Random pairs; p=24,Random pairs,
+split-benchmark-cbc.json,general_pairs_p24_s20261013,Random pairs; p=24,Random pairs,
+split-benchmark-cbc.json,general_pairs_p48_s20261011,Random pairs; p=48,Random pairs,
+split-benchmark-cbc.json,general_pairs_p48_s20261012,Random pairs; p=48,Random pairs,
+split-benchmark-cbc.json,general_pairs_p48_s20261013,Random pairs; p=48,Random pairs,
+split-benchmark-cbc.json,general_pairs_p96_s20261011,Random pairs; p=96,Random pairs,
+split-benchmark-cbc.json,general_pairs_p96_s20261012,Random pairs; p=96,Random pairs,
+split-benchmark-cbc.json,general_pairs_p96_s20261013,Random pairs; p=96,Random pairs,
+split-benchmark-cbc.json,matching_stress_p24_s20261011,Matching stress; p=24,Matching stress,
+split-benchmark-cbc.json,matching_stress_p48_s20261011,Matching stress; p=48,Matching stress,
+split-benchmark-cbc.json,matching_stress_p96_s20261011,Matching stress; p=96,Matching stress,
+split-scaling.json,bipartite;p=192;seed=20261011,,,Bipartite; p=192
+split-scaling.json,bipartite;p=384;seed=20261011,,,Bipartite; p=384
+split-scaling.json,bipartite;p=768;seed=20261011,,,Bipartite; p=768
+split-scaling.json,bipartite;p=1024;seed=20261011,,,Bipartite; p=1024
+split-scaling.json,cubic_single;p=192;seed=20261011,,,"Cubic, one copy; p=192"
+split-scaling.json,cubic_single;p=384;seed=20261011,,,"Cubic, one copy; p=384"
+split-scaling.json,cubic_single;p=768;seed=20261011,,,"Cubic, one copy; p=768"
+split-scaling.json,cubic_single;p=1024;seed=20261011,,,"Cubic, one copy; p=1024"

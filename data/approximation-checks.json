@@ -1,0 +1,145 @@
+{
+  "transfer": {
+    "exhaustive_inputs": 6540,
+    "all_cover_transfer_checks": 54682,
+    "third_branch_strictly_optimal_inputs": 0,
+    "additional_dense_inputs": 60,
+    "dense_third_branch_inputs": 52,
+    "dense_transfer_checks": 1077,
+    "dense_independent_milp_checks": 10,
+    "worst_sampled_ratio": [
+      1.2,
+      {
+        "p": 9,
+        "neighborhoods": [
+          288,
+          24,
+          34,
+          272,
+          20,
+          5,
+          72,
+          10,
+          130,
+          6,
+          96,
+          24,
+          5,
+          136,
+          33,
+          384,
+          288,
+          36,
+          260,
+          132,
+          264,
+          130,
+          48,
+          384,
+          24,
+          65,
+          384,
+          96,
+          130,
+          10,
+          65,
+          64,
+          64
+        ]
+      }
+    ],
+    "tight_matching_example": {
+      "p": 6,
+      "q": 24,
+      "algorithm": 12,
+      "optimum": 9
+    }
+  },
+  "apx": {
+    "instances": [
+      {
+        "source": "cube",
+        "p": 8,
+        "target_order": 32,
+        "tau": 4,
+        "milp_optimum": 12,
+        "decoder_checks": 793
+      },
+      {
+        "source": "two_K4",
+        "p": 8,
+        "target_order": 32,
+        "tau": 6,
+        "milp_optimum": 14,
+        "decoder_checks": 793
+      },
+      {
+        "source": "Petersen",
+        "p": 10,
+        "target_order": 40,
+        "tau": 6,
+        "milp_optimum": 16,
+        "decoder_checks": 1567
+      },
+      {
+        "source": "pentagonal_prism",
+        "p": 10,
+        "target_order": 40,
+        "tau": 6,
+        "milp_optimum": 16,
+        "decoder_checks": 1567
+      },
+      {
+        "source": "K33_plus_K4",
+        "p": 10,
+        "target_order": 40,
+        "tau": 6,
+        "milp_optimum": 16,
+        "decoder_checks": 1567
+      },
+      {
+        "source": "Frucht",
+        "p": 12,
+        "target_order": 48,
+        "tau": 7,
+        "milp_optimum": 19,
+        "decoder_checks": 4645
+      },
+      {
+        "source": "hexagonal_prism",
+        "p": 12,
+        "target_order": 48,
+        "tau": 6,
+        "milp_optimum": 18,
+        "decoder_checks": 4645
+      },
+      {
+        "source": "random_14",
+        "p": 14,
+        "target_order": 56,
+        "tau": 8,
+        "milp_optimum": 22,
+        "decoder_checks": 555
+      },
+      {
+        "source": "random_16",
+        "p": 16,
+        "target_order": 64,
+        "tau": 9,
+        "milp_optimum": 25,
+        "decoder_checks": 561
+      }
+    ],
+    "decoder_checks": 16693,
+    "decoder_branches": {
+      "large_weight": 13956,
+      "normalized": 2737
+    },
+    "L_constants": [
+      3,
+      1
+    ]
+  },
+  "all_passed": true,
+  "seconds": 4.19
+}
